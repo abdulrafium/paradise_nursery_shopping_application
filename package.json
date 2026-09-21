@@ -1,0 +1,34 @@
+{
+  "name": "paradise_nursery_shopping_application",
+  "version": "1.0.0",
+  "description": "Paradise Nursery Shopping Application - A modern React & Redux Toolkit plant shop.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulrafium/paradise_nursery_shopping_application.git"
+  },
+  "keywords": [
+    "react",
+    "redux-toolkit",
+    "shopping-cart",
+    "paradise-nursery",
+    "plants"
+  ],
+  "author": "Paradise Nursery",
+  "license": "MIT",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-redux": "^9.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
+  }
+}
