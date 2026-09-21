@@ -1,0 +1,358 @@
+/* =========================================================
+   ProductList.css - Paradise Nursery Plants Catalog & Navbar
+   Task 6: Product listing, navbar, responsive plant cards
+   ========================================================= */
+
+.product-list-wrapper {
+  min-height: 100vh;
+  background-color: #f6faf6;
+  color: #1a2b1c;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Persistent Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+  background: rgba(20, 48, 24, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.brand-subtext {
+  font-size: 0.76rem;
+  color: #a5d6a7;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link-btn {
+  background: transparent;
+  border: none;
+  color: #e0eedf;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-link-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-btn.active {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.15);
+}
+
+/* Cart Nav Icon & Badge */
+.cart-nav-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cart-nav-box:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.05);
+}
+
+.cart-svg-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff5252;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 0 3px;
+  box-sizing: border-box;
+}
+
+/* Product Catalog Layout */
+.product-catalog-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.catalog-hero-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.catalog-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1b5e20;
+  background: #e8f5e9;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.catalog-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #143317;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.catalog-subtitle {
+  font-size: 1.1rem;
+  color: #4f6852;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.categories-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid #e1ebe2;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.category-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #1a3d1c;
+  position: relative;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #2e7d32;
+  border-radius: 2px;
+}
+
+.category-count {
+  font-size: 0.9rem;
+  color: #638067;
+  font-weight: 600;
+}
+
+/* Grid of 6 Plants per Category */
+.plant-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+/* Individual Plant Card */
+.plant-card {
+  background: #ffffff;
+  border: 1px solid #e3ede4;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(27, 94, 32, 0.12);
+  border-color: #a5d6a7;
+}
+
+.plant-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #edf3ee;
+  overflow: hidden;
+}
+
+.plant-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.plant-card:hover .plant-thumbnail {
+  transform: scale(1.06);
+}
+
+.plant-price-pill {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(20, 48, 24, 0.9);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.plant-info-container {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.plant-name {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #1a3d1c;
+  margin: 0 0 0.5rem 0;
+}
+
+.plant-description {
+  font-size: 0.92rem;
+  color: #556e57;
+  line-height: 1.5;
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+
+.plant-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f0f5f1;
+}
+
+.plant-price-label {
+  font-size: 0.95rem;
+  color: #49634b;
+}
+
+.plant-price-label strong {
+  color: #1b5e20;
+  font-size: 1.15rem;
+}
+
+/* Add to Cart Button with Disabled State */
+.btn-add-to-cart {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-add-to-cart:hover:not(:disabled) {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.3);
+}
+
+.btn-add-to-cart:disabled,
+.btn-add-to-cart.added {
+  background: #c8dcc9;
+  color: #4b634d;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.2rem;
+  }
+  .brand-subtext {
+    display: none;
+  }
+  .plant-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

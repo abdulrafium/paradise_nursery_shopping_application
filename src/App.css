@@ -1,0 +1,163 @@
+/* =========================================================
+   App.css - Paradise Nursery Landing Page & Global Layout
+   Task 3: Background image implementation for landing page
+   ========================================================= */
+
+:root {
+  --primary-green: #2e7d32;
+  --primary-dark: #1b5e20;
+  --primary-light: #4caf50;
+  --accent-gold: #fbc02d;
+  --bg-dark: #0f1c12;
+  --text-light: #f5f9f5;
+  --text-dark: #1c2b1e;
+  --glass-bg: rgba(18, 38, 22, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Landing Page Wrapper with Botanical Background Image */
+.landing-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* Task 3: Background image implementing Paradise Nursery landing page */
+  background-image: linear-gradient(
+      rgba(8, 22, 12, 0.68),
+      rgba(14, 34, 18, 0.82)
+    ),
+    url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 3rem 1.5rem 5rem 1.5rem;
+  box-sizing: border-box;
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Background overlay filter */
+.landing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Hero Section */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 850px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #a5d6a7;
+  margin-bottom: 1.2rem;
+}
+
+.company-title {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #ffffff 40%, #c8e6c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 400;
+  color: #e0eedf;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* CTA "Get Started" Button (Task 4) */
+.btn-get-started {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0b2210;
+  background: linear-gradient(135deg, #a5d6a7 0%, #66bb6a 50%, #43a047 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+
+.btn-get-started:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(76, 175, 80, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #c8e6c9 0%, #81c784 50%, #4caf50 100%);
+}
+
+.btn-get-started:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-get-started:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* About Us Section Container within Landing Page */
+.about-us-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
